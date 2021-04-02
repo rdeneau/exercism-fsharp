@@ -18,6 +18,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BeerSong", "beer-song\BeerS
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OcrNumbers", "ocr-numbers\OcrNumbers.fsproj", "{852E0E0B-8D7D-4D82-B146-0BE0A127E451}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RobotSimulator", "robot-simulator\RobotSimulator.fsproj", "{80E4819F-9F90-4A45-85E0-1136672F03C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{852E0E0B-8D7D-4D82-B146-0BE0A127E451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{852E0E0B-8D7D-4D82-B146-0BE0A127E451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{852E0E0B-8D7D-4D82-B146-0BE0A127E451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
