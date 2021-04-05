@@ -1,37 +1,37 @@
 ﻿module RobotSimulator
 
-type Direction = North | East | South | West
+type Orientation = North | East | South | West
 type Move      = int * int
 type Position  = int * int
-type Robot     = { direction: Direction; position: Position }
+type Robot     = { orientation: Orientation; position: Position }
 
-let create direction position =
-    { direction = direction; position = position }
+let create orientation position =
+    { orientation = orientation; position = position }
 
 let turn next robot =
-    { robot with direction = next robot.direction }
+    { robot with orientation = next robot.orientation }
 
-let private advance (moveTowards: Direction -> Move) robot =
+let private advance (moveTowards: Orientation -> Move) robot =
     let x,y = robot.position
-    let dx,dy = moveTowards robot.direction
+    let dx,dy = moveTowards robot.orientation
     { robot with position = (x+dx, y+dy) }
 
-let private right direction =
-    match direction with
+let private right orientation =
+    match orientation with
     | North -> East
     | East  -> South
     | South -> West
     | West  -> North
 
-let private left direction =
-    match direction with
+let private left orientation =
+    match orientation with
     | North -> West
     | West  -> South
     | South -> East
     | East  -> North
 
-let private once direction =
-    match direction with
+let private once orientation =
+    match orientation with
     | North ->  0, +1
     | South ->  0, -1
     | West  -> -1,  0
