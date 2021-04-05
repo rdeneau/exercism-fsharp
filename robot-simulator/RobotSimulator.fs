@@ -1,9 +1,9 @@
 ﻿module RobotSimulator
 
 type Orientation = North | East | South | West
-type Move      = int * int
-type Position  = int * int
-type Robot     = { orientation: Orientation; position: Position }
+type Move     = int * int
+type Position = int * int
+type Robot = { orientation: Orientation; position: Position }
 
 let create orientation position =
     { orientation = orientation; position = position }
