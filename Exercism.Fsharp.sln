@@ -20,6 +20,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OcrNumbers", "ocr-numbers\O
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RobotSimulator", "robot-simulator\RobotSimulator.fsproj", "{80E4819F-9F90-4A45-85E0-1136672F03C4}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Diamond", "Diamond\Diamond.fsproj", "{DC462704-E9CF-489B-B1B8-733C083F1000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80E4819F-9F90-4A45-85E0-1136672F03C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC462704-E9CF-489B-B1B8-733C083F1000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC462704-E9CF-489B-B1B8-733C083F1000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC462704-E9CF-489B-B1B8-733C083F1000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC462704-E9CF-489B-B1B8-733C083F1000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
