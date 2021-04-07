@@ -22,6 +22,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RobotSimulator", "robot-sim
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Diamond", "Diamond\Diamond.fsproj", "{DC462704-E9CF-489B-B1B8-733C083F1000}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CollatzConjecture", "collatz-conjecture\CollatzConjecture.fsproj", "{0DDBFCA1-758E-4DC4-81A6-EEBEE33CA7C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 		{DC462704-E9CF-489B-B1B8-733C083F1000}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC462704-E9CF-489B-B1B8-733C083F1000}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC462704-E9CF-489B-B1B8-733C083F1000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDBFCA1-758E-4DC4-81A6-EEBEE33CA7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDBFCA1-758E-4DC4-81A6-EEBEE33CA7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDBFCA1-758E-4DC4-81A6-EEBEE33CA7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDBFCA1-758E-4DC4-81A6-EEBEE33CA7C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
