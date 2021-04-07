@@ -11,7 +11,7 @@
     <Compile Include="Letter.fs" />
     <Compile Include="LetterShould.fs" />
     <Compile Include="Diamond.fs" />
-    <Compile Include="DiamondProperties.fs" />
+    <Compile Include="DiamondTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
