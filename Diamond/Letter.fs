@@ -4,8 +4,10 @@ type Letter =
     | A | B | C | D | E | F | G | H | I | J | K | L | M
     | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
 
+type Index = int
+
 module Letter =
-    let private all =
+    let private all: Map<Letter, (Index * char)> =
         [
             A ; B ; C ; D ; E ; F ; G ; H ; I ; J ; K ; L ; M
             N ; O ; P ; Q ; R ; S ; T ; U ; V ; W ; X ; Y ; Z
@@ -13,14 +15,14 @@ module Letter =
         |> List.mapi (fun index letter -> (letter, (index, (string letter).[0])))
         |> Map.ofList
 
-    let ofChar (c: char) : Letter =
-        all |> Map.findKey (fun _ (_, char) -> char = c)
+    let ofChar (char: char) : Letter =
+        all |> Map.findKey (fun _ (_, c) -> c = char)
 
     let toChar (letter: Letter) : char =
-        snd all.[letter]
+        all.[letter] |> snd
 
     let index (letter: Letter) : int =
-        fst all.[letter]
+        all.[letter] |> fst
 
     let upTo (letter: Letter) : Letter list =
         [ 'A' .. (letter |> toChar) ]
