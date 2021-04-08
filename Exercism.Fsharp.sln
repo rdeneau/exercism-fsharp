@@ -26,6 +26,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CollatzConjecture", "collat
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ArmstrongNumbers", "armstrong-numbers\ArmstrongNumbers.fsproj", "{875BECAE-D7CC-4D12-9494-64040C7A60B7}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BinarySearchTree", "binary-search-tree\BinarySearchTree.fsproj", "{625A7CBE-2139-467D-B047-33642AF0E4D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +86,9 @@ Global
 		{875BECAE-D7CC-4D12-9494-64040C7A60B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{875BECAE-D7CC-4D12-9494-64040C7A60B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{875BECAE-D7CC-4D12-9494-64040C7A60B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625A7CBE-2139-467D-B047-33642AF0E4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625A7CBE-2139-467D-B047-33642AF0E4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625A7CBE-2139-467D-B047-33642AF0E4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625A7CBE-2139-467D-B047-33642AF0E4D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
