@@ -10,6 +10,7 @@
     <Compile Include="RobotSimulator.fs" />
     <Compile Include="RobotSimulatorTests.fs" />
     <Compile Include="RobotSimulatorProperties.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

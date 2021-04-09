@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="Darts.fs" />
     <Compile Include="DartsTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

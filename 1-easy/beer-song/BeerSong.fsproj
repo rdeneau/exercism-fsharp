@@ -10,6 +10,7 @@
     <Compile Include="String.fs" />
     <Compile Include="BeerSong.fs" />
     <Compile Include="BeerSongTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

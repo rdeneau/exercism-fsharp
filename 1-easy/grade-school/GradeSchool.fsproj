@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="GradeSchool.fs" />
     <Compile Include="GradeSchoolTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

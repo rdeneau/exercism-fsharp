@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="QueenAttack.fs" />
     <Compile Include="QueenAttackTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

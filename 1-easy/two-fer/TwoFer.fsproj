@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="TwoFer.fs" />
     <Compile Include="TwoFerTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

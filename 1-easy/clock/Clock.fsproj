@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="Clock.fs" />
     <Compile Include="ClockTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

@@ -12,6 +12,7 @@
     <Compile Include="LetterShould.fs" />
     <Compile Include="Diamond.fs" />
     <Compile Include="DiamondTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="ArmstrongNumbers.fs" />
     <Compile Include="ArmstrongNumbersTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

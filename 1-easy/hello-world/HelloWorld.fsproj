@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="HelloWorld.fs" />
     <Compile Include="HelloWorldTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="CollatzConjecture.fs" />
     <Compile Include="CollatzConjectureTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

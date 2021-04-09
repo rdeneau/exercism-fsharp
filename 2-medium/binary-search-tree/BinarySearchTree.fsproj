@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="BinarySearchTree.fs" />
     <Compile Include="BinarySearchTreeTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

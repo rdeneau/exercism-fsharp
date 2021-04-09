@@ -12,6 +12,7 @@
     <Compile Include="Digit.fs" />
     <Compile Include="OcrNumbers.fs" />
     <Compile Include="OcrNumbersTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>

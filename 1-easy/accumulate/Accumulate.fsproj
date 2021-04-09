@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="Accumulate.fs" />
     <Compile Include="AccumulateTests.fs" />
+    <Content Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>
