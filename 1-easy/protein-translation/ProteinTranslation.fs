@@ -14,11 +14,14 @@ let private tryParseCodon codon =
     | "UAA" | "UAG" | "UGA"         -> Some Stop
     | _                             -> None
 
+let [<Literal>] CodonSize = 3
+
 let proteins rna =
     let codons =
-        [ 0 .. 3 .. (String.length rna) - 1 ]
-        |> List.map (fun i -> rna.Substring(i, 3))
-        |> List.choose tryParseCodon
+        rna
+        |> Seq.chunkBySize CodonSize
+        |> Seq.map System.String
+        |> Seq.choose tryParseCodon
 
     let proteinsUntilStop (stopped, results) current =
         match (stopped, current) with
@@ -27,6 +30,6 @@ let proteins rna =
         | (false, Protein p) -> (false, p :: results) 
 
     codons
-    |> List.fold proteinsUntilStop (false, [])
+    |> Seq.fold proteinsUntilStop (false, [])
     |> snd
     |> List.rev
