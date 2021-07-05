@@ -6,9 +6,9 @@ let empty: School = Map.empty
 
 let add (student: string) (grade: int) (school: School): School =
     school |> Map.change grade
-        (   function
-            | Some xs -> Some (student :: xs |> List.sort)
-            | None    -> Some [student] )
+        ( function
+          | Some xs -> Some (student :: xs |> List.sort)
+          | None    -> Some [student] )
 
 let roster (school: School): string list =
     school
