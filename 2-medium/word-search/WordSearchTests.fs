@@ -139,7 +139,7 @@ let ``Should locate a single word written right to left`` () =
     let expected = [("elixir", Some ((6, 1), (1, 1)))] |> Map.ofList
     search grid wordsToSearchFor |> should equal expected
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Should locate multiple words written in different horizontal directions`` () =
     let grid = 
         [ "jefblpepre";

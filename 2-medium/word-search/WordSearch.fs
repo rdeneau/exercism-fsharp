@@ -1,17 +1,33 @@
 ﻿module WordSearch
 
-type Coordinate = int * int
+type X = int
+type Y = int
+type Coordinate = X * Y
 type Grid = string list
+
+let reverse (word: string) =
+    word
+    |> Seq.rev
+    |> Seq.toArray
+    |> System.String
+
+let searchWordInLine y (line: string) (word: string) : (Coordinate * Coordinate) option =
+    let x = line.IndexOf word
+    if x >= 0
+    then Some ((x+1, y), (x+word.Length, y))
+    else None
+
+let searchReversedWordInLine y (line: string) (word: string) : (Coordinate * Coordinate) option =
+    searchWordInLine (y+1) line (reverse word)
+    |> Option.map (fun ((x1, _), (x2, _)) -> ((x2, y), (x1, y)))
 
 let searchWord (grid: Grid) (word: string) : (Coordinate * Coordinate) option =
     grid
     |> List.indexed
-    |> List.tryPick
-        ( fun (y, line) ->
-             let x = line.IndexOf word
-             if x >= 0
-             then Some ((x+1, y+1), (x+word.Length, y+1))
-             else None )
+    |> List.tryPick (fun (i, line) ->
+        let y = i + 1
+        searchWordInLine y line word
+        |> Option.orElse (searchReversedWordInLine y line word) )
 
 let search grid wordsToSearchFor : Map<string, (Coordinate * Coordinate) option> =
     wordsToSearchFor
