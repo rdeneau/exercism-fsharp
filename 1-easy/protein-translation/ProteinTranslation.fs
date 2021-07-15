@@ -14,6 +14,16 @@ let private tryParseCodon codon =
     | "UAA" | "UAG" | "UGA"         -> Some Stop
     | _                             -> None
 
+let private isProtein codon =
+    match codon with
+    | Protein _ -> true
+    | _ -> false
+
+let private justProtein codon =
+    match codon with
+    | Protein p -> Some p
+    | _ -> None
+
 let [<Literal>] CodonSize = 3
 
 let proteins rna =
@@ -23,13 +33,7 @@ let proteins rna =
         |> Seq.map System.String
         |> Seq.choose tryParseCodon
 
-    let proteinsUntilStop (stopped, results) current =
-        match (stopped, current) with
-        | (true, _)
-        | (false, Stop) -> (true, results)
-        | (false, Protein p) -> (false, p :: results) 
-
     codons
-    |> Seq.fold proteinsUntilStop (false, [])
-    |> snd
-    |> List.rev
+    |> Seq.takeWhile isProtein
+    |> Seq.choose justProtein
+    |> Seq.toList
