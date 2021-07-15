@@ -159,7 +159,7 @@ let ``Should locate multiple words written in different horizontal directions`` 
         |> Map.ofList
     search grid wordsToSearchFor |> should equal expected
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Should locate words written top to bottom`` () =
     let grid = 
         [ "jefblpepre";
@@ -180,7 +180,7 @@ let ``Should locate words written top to bottom`` () =
         |> Map.ofList
     search grid wordsToSearchFor |> should equal expected
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Should locate words written bottom to top`` () =
     let grid = 
         [ "jefblpepre";
