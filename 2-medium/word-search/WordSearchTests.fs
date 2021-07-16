@@ -44,7 +44,7 @@ let ``Should locate that different left to right word in a different position`` 
 
 [<Fact>]
 let ``Should locate a left to right word in two line grid`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "tclojurerm" ]
     let wordsToSearchFor = ["clojure"]
@@ -53,7 +53,7 @@ let ``Should locate a left to right word in two line grid`` () =
 
 [<Fact>]
 let ``Should locate a left to right word in three line grid`` () =
-    let grid = 
+    let grid =
         [ "camdcimgtc";
           "jefblpepre";
           "clojurermt" ]
@@ -63,7 +63,7 @@ let ``Should locate a left to right word in three line grid`` () =
 
 [<Fact>]
 let ``Should locate a left to right word in ten line grid`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -80,7 +80,7 @@ let ``Should locate a left to right word in ten line grid`` () =
 
 [<Fact>]
 let ``Should locate that left to right word in a different position in a ten line grid`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -97,7 +97,7 @@ let ``Should locate that left to right word in a different position in a ten lin
 
 [<Fact>]
 let ``Should locate a different left to right word in a ten line grid`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -114,7 +114,7 @@ let ``Should locate a different left to right word in a ten line grid`` () =
 
 [<Fact>]
 let ``Should locate multiple words`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -126,7 +126,7 @@ let ``Should locate multiple words`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["fortran"; "clojure"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("fortran", Some ((1, 7), (7, 7))) ]
         |> Map.ofList
@@ -141,7 +141,7 @@ let ``Should locate a single word written right to left`` () =
 
 [<Fact>]
 let ``Should locate multiple words written in different horizontal directions`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -153,7 +153,7 @@ let ``Should locate multiple words written in different horizontal directions`` 
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["elixir"; "clojure"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5))) ]
         |> Map.ofList
@@ -161,7 +161,7 @@ let ``Should locate multiple words written in different horizontal directions`` 
 
 [<Fact>]
 let ``Should locate words written top to bottom`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -173,7 +173,7 @@ let ``Should locate words written top to bottom`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10))) ]
@@ -182,7 +182,7 @@ let ``Should locate words written top to bottom`` () =
 
 [<Fact>]
 let ``Should locate words written bottom to top`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -194,7 +194,7 @@ let ``Should locate words written bottom to top`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"; "rust"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10)));
@@ -204,7 +204,7 @@ let ``Should locate words written bottom to top`` () =
 
 [<Fact>]
 let ``Should locate words written top left to bottom right`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -216,7 +216,7 @@ let ``Should locate words written top left to bottom right`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"; "rust"; "java"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10)));
@@ -225,9 +225,9 @@ let ``Should locate words written top left to bottom right`` () =
         |> Map.ofList
     search grid wordsToSearchFor |> should equal expected
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Should locate words written bottom right to top left`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -239,7 +239,7 @@ let ``Should locate words written bottom right to top left`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"; "rust"; "java"; "lua"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10)));
@@ -249,9 +249,9 @@ let ``Should locate words written bottom right to top left`` () =
         |> Map.ofList
     search grid wordsToSearchFor |> should equal expected
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Should locate words written bottom left to top right`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -263,7 +263,7 @@ let ``Should locate words written bottom left to top right`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"; "rust"; "java"; "lua"; "lisp"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10)));
@@ -274,9 +274,9 @@ let ``Should locate words written bottom left to top right`` () =
         |> Map.ofList
     search grid wordsToSearchFor |> should equal expected
 
-[<Fact(Skip = "Remove this Skip property to run this test")>]
+[<Fact>]
 let ``Should locate words written top right to bottom left`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -288,7 +288,7 @@ let ``Should locate words written top right to bottom left`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"; "rust"; "java"; "lua"; "lisp"; "ruby"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10)));
@@ -302,7 +302,7 @@ let ``Should locate words written top right to bottom left`` () =
 
 [<Fact(Skip = "Remove this Skip property to run this test")>]
 let ``Should fail to locate a word that is not in the puzzle`` () =
-    let grid = 
+    let grid =
         [ "jefblpepre";
           "camdcimgtc";
           "oivokprjsm";
@@ -314,7 +314,7 @@ let ``Should fail to locate a word that is not in the puzzle`` () =
           "jalaycalmp";
           "clojurermt" ]
     let wordsToSearchFor = ["clojure"; "elixir"; "ecmascript"; "rust"; "java"; "lua"; "lisp"; "ruby"; "haskell"]
-    let expected = 
+    let expected =
         [ ("clojure", Some ((1, 10), (7, 10)));
           ("elixir", Some ((6, 5), (1, 5)));
           ("ecmascript", Some ((10, 1), (10, 10)));

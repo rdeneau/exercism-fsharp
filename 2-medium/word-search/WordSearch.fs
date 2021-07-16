@@ -3,94 +3,60 @@
 type X = int
 type Y = int
 type Coordinate = X * Y
+
 type Grid = string list
-type Dimension = { Width: int; Height: int }
 
-module Grid =
-    let dimensions (grid: Grid) =
-        if grid.Length = 0
-        then { Width = 0; Height = 0 }
-        else { Width = grid.Head.Length; Height = grid.Length }
+type GridA = { Lines: string array; Width: int; Height: int }
 
-let reverse (word: string) =
-    word
-    |> Seq.rev
-    |> Seq.toArray
-    |> System.String
+module GridA =
+    let ofGrid (grid: Grid) : GridA =
+        if grid.Length = 0 then
+            { Lines  = [||]
+              Width  = 0
+              Height = 0 }
+        else
+            { Lines  = grid |> List.toArray
+              Width  = grid.Head.Length
+              Height = grid.Length }
 
-let transpose (grid: Grid) : Grid =
-    grid
-    |> Seq.ofList
-    |> Seq.transpose
-    |> Seq.map (Seq.toArray >> System.String)
-    |> Seq.toList
+type Direction = { Label: string; DeltaX: int; DeltaY: int }
 
-let diagonalsOf (grid: Grid) =
-    let { Width = width; Height = height } = grid |> Grid.dimensions
-    if width * height = 0 then
-        [||]
+let directions =
+    [ { DeltaX = +0; DeltaY = -1; Label = "Top" }
+      { DeltaX = +1; DeltaY = -1; Label = "TopRight" }
+      { DeltaX = +1; DeltaY = +0; Label = "Right" }
+      { DeltaX = +1; DeltaY = +1; Label = "RightBottom" }
+      { DeltaX = +0; DeltaY = +1; Label = "Bottom" }
+      { DeltaX = -1; DeltaY = +1; Label = "BottomLeft" }
+      { DeltaX = -1; DeltaY = +0; Label = "Left" }
+      { DeltaX = -1; DeltaY = -1; Label = "LeftTop" } ]
+
+let substring { Lines = lines; Width = w; Height = h } (startX, startY) { DeltaX = dx; DeltaY = dy } length =
+    let endX = startX + dx * (length - 1)
+    let endY = startY + dy * (length - 1)
+    if endX <= 0 || endX > w ||
+       endY <= 0 || endY > h then
+        {| Text = ""; Coordinates = ((0, 0), (0, 0)) |}
     else
-        let gridA = grid |> List.toArray
-        [| for j in [ 1 .. width ] do
-            let text =
-                [| for x in [ 0 .. width-j ] do
-                    let y = j - 1 + x
-                    if y < height then gridA.[x].[y] |]
-                |> System.String
-            {| Text = text; StartY = 0; StartX = j - 1; LeftToRight = true |} |]
-        // let ranges =
-        //     [ // Diagonals from top edge of the grid
-        //       yield!
-        //         [| for j in [ 1 .. width ] do
-        //             {| iMin = 0
-        //                jMin = j - 1
-        //                iMax = width - j
-        //                jMax = width - 1 |} |]
-        //       // Diagonals from left edge of the grid
-        //       yield!
-        //         [| for i in [ 2 .. height ] do
-        //             {| iMin = i - 1
-        //                jMin = 0
-        //                iMax = height - 1
-        //                jMax = height - i |} |] ]
+        let text =
+            [| for i in [ 0 .. length-1 ] do
+                let x = startX + dx * i
+                let y = startY + dy * i
+                lines.[y - 1].[x - 1] |]
+            |> System.String
+        {| Text = text; Coordinates = ((startX, startY), (endX, endY)) |}
 
-let searchWordInLine y (line: string) (word: string) : (Coordinate * Coordinate) option =
-    let x = line.IndexOf word
-    if x >= 0
-    then Some ((x+1, y), (x+word.Length, y))
-    else None
-
-let searchReversedWordInLine y (line: string) (word: string) : (Coordinate * Coordinate) option =
-    searchWordInLine (y+1) line (reverse word)
-    |> Option.map (fun ((x1, _), (x2, _)) -> ((x2, y), (x1, y)))
-
-let searchWordInGrid (grid: Grid) (word: string) : (Coordinate * Coordinate) option =
-    grid
-    |> List.indexed
-    |> List.tryPick (fun (i, line) ->
-        let y = i + 1
-        searchWordInLine y line word
-        |> Option.orElse (searchReversedWordInLine y line word) )
-
-let searchWordInTransposedGrid grid word =
-    searchWordInGrid (transpose grid) word
-    |> Option.map (fun ((x1, y1), (x2, y2)) -> ((y1, x1), (y2, x2)))
-
-let searchWordInGridDiagonals grid word =
-    let diagonals = diagonalsOf grid
-    let gridOfDiagonals = diagonals |> Array.map (fun d -> d.Text) |> Array.toList
-    searchWordInGrid gridOfDiagonals word
-    |> Option.map (fun ((x, y), _) ->
-        let d = diagonals.[y - 1]
-        let k = word.Length - 1
-        let start = (x + d.StartX,     y + d.StartY)
-        let end'' = (x + d.StartX + k, y + d.StartY + k)
-        (start, end''))
-
-let searchWord grid word =
-    searchWordInGrid grid word
-    |> Option.orElse (searchWordInTransposedGrid grid word)
-    |> Option.orElse (searchWordInGridDiagonals grid word)
+let searchWord grid word : (Coordinate * Coordinate) option =
+    let length = word |> String.length
+    let gridA = grid |> GridA.ofGrid
+    seq {
+        for x in [ 1 .. gridA.Width ] do
+        for y in [ 1 .. gridA.Height ] do
+        for direction in directions do
+            let candidate = substring gridA (x, y) direction length
+            if candidate.Text = word then
+                yield candidate.Coordinates }
+    |> Seq.tryHead
 
 let search grid wordsToSearchFor : Map<string, (Coordinate * Coordinate) option> =
     wordsToSearchFor
