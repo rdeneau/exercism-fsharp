@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Quinto.fs" />
-    <Compile Include="QuintoTests.fs" />
+    <Compile Include="Op.fs" />
+    <Compile Include="Candidate.fs" />
+    <Compile Include="CandidateTests.fs" />
+    <Compile Include="Game.fs" />
+    <Compile Include="GameTests.fs" />
     <Compile Include="Program.fs" />
     <Content Include="README.md" />
   </ItemGroup>
