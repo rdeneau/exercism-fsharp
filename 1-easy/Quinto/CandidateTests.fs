@@ -12,7 +12,9 @@ let ``Create valid candidate with Formula and Result`` () =
           2, Op.Mul
           1, Op.Sub ]
     let candidate = Candidate.tryCreate head tail
-    let actual = candidate |> Option.map (fun x -> (x.Result, x.Formula))
+    let actual = candidate |> Option.map (fun x ->
+        (x |> Candidate.result,
+         x |> Candidate.formula) )
     actual =! Some (37, "3 * 5 = 15 + 4 = 19 * 2 = 38 - 1 = 37")
 
 [<Fact>]
@@ -34,5 +36,5 @@ let ``Normalize candidate`` () =
           4, Op.Mul
           5, Op.Add ]
     let candidate = Candidate.tryCreate head tail
-    let actual = candidate |> Option.map (fun x -> (Candidate.normalize x).Formula)
+    let actual = candidate |> Option.map (Candidate.normalize >> Candidate.formula)
     actual =! Some "1 + 3 = 4 * 2 = 8 * 4 = 32 + 5 = 37"

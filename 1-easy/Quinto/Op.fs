@@ -23,6 +23,10 @@ module Op =
         | Add | Mul -> true
         | Sub | Div -> false
 
+    let hasNeutralElement num = function
+        | Add | Sub -> num = 0
+        | Mul | Div -> num = 1
+
     let private allOps = [ Add; Sub; Mul; Div ]
 
     let private extendGroup group =

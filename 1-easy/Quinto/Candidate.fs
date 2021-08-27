@@ -1,13 +1,13 @@
 namespace Quinto
 
-type Candidate = private {
-    Head: int
-    Tail: (int * Op) list
-    Formula: string
-    Result: int
-}
-
 module Candidate =
+    type Candidate = private {
+        Head: int
+        Tail: (int * Op) list
+        Formula: string
+        Result: int
+    }
+
     let private singleton head =
         { Head = head; Tail = []; Formula = head.ToString("0"); Result = head }
 
@@ -25,6 +25,15 @@ module Candidate =
         ||> List.fold (fun acc (digit, op) ->
             acc |> Option.bind (tryAdd (digit, op)) )
 
+    let formula candidate =
+        candidate.Formula
+
+    let result candidate =
+        candidate.Result
+
+    let hasResult result candidate =
+        result = candidate.Result
+
     let normalize candidate =
         match candidate.Tail with
         | [] -> candidate
@@ -37,3 +46,7 @@ module Candidate =
             match tryCreate d0' ((d1', op1) :: tail) with
             | Some candidate' -> candidate'
             | None -> failwith "Normalization should not invalidate"
+
+    let containsIdentity candidate =
+        candidate.Tail
+        |> List.exists (fun (digit, op) -> op |> Op.hasNeutralElement digit)
