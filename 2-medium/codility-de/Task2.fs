@@ -69,7 +69,6 @@ printfn "V1"
 for i in [0..1_000_000] do
     computeV1 [ 2; 4; 8; 10 ] |> ignore
 #time
-// Réel : 00:00:00.161, Processeur : 00:00:00.171, GC gén0: 60, gén1: 1, gén2: 0
 
 #time
 printfn "V2"
