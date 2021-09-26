@@ -1,4 +1,6 @@
-# Codility tests for D-E***
+# Tests passés sur Codility pour "DE"
+
+> ☝ Les énoncés ne sont pas ceux officiels mais une retranscription de mémoire.
 
 ## Task 2
 
