@@ -1,5 +1,10 @@
 # Bank Account
 
+Welcome to Bank Account on Exercism's F# Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 Simulate a bank account supporting opening/closing, withdrawals, and deposits
 of money. Watch out for concurrent transactions!
 
@@ -26,18 +31,19 @@ it.
 
 Have fun!
 
-## Running the tests
+## Source
 
-To run the tests, run the command `dotnet test` from within the exercise directory.
+### Created by
 
-## Autoformatting the code
+- @jwood803
 
-F# source code can be formatted with the [Fantomas](https://github.com/fsprojects/fantomas) tool.
+### Contributed to by
 
-After installing it with `dotnet tool restore`, run `dotnet fantomas .` to format code within the current directory.
-
-## Further information
-
-For more detailed information about the F# track, including how to get help if
-you're having trouble, please visit the exercism.io [F# language page](http://exercism.io/languages/fsharp/resources).
-
+- @ErikSchierboom
+- @jbtule
+- @jrr
+- @kytrinyx
+- @lestephane
+- @robkeim
+- @valentin-p
+- @wolf99
